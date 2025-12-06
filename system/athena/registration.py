@@ -60,8 +60,8 @@ def register(show_spinner=False) -> str | None:
     # Block until we get the imei
     serial = HARDWARE.get_serial()
     start_time = time.monotonic()
-    imei1: str | None = None
-    imei2: str | None = None
+    imei1: str | None = "123456789012345"
+    imei2: str | None = "987654321098765"
     skip_imei_count = 0
     while imei1 is None and imei2 is None:
       try:
@@ -107,7 +107,7 @@ def register(show_spinner=False) -> str | None:
 
   if dongle_id:
     params.put("DongleId", dongle_id)
-    set_offroad_alert("Offroad_UnregisteredHardware", (dongle_id == UNREGISTERED_DONGLE_ID) and not PC and not os.getenv("LITE"))
+    pass #set_offroad_alert("Offroad_UnregisteredHardware", (dongle_id == UNREGISTERED_DONGLE_ID) and not PC and not os.getenv("LITE"))
   return dongle_id
 
 
